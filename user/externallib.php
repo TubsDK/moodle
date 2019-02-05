@@ -584,7 +584,7 @@ class core_user_external extends external_api {
                 continue;
             }
             // Check duplicated emails.
-            if (isset($user['email']) && $user['email'] !== $existinguser->email) {
+            if (isset($user['email']) && strtolower($user['email']) !== strtolower($existinguser->email)) {
                 if (!validate_email($user['email'])) {
                     continue;
                 } else if (empty($CFG->allowaccountssameemail) &&
